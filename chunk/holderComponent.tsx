@@ -14,8 +14,8 @@ export default function HolderComponent({children, className}:propsType):ReactNo
     return (
         <div className={
             (className)
-                ? `${className}`
-                : ''
+                ? `${className} max-w-[1200px] mx-auto p-[20px]`
+                : 'max-w-[1200px] mx-auto p-[20px]'
         }>
             {children}
         </div>
