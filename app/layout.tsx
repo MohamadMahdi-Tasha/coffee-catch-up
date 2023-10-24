@@ -5,6 +5,7 @@ import {Metadata} from "next";
 import {Nunito} from "next/font/google";
 import '@/app/index.css';
 import {NextFont} from "next/dist/compiled/@next/font";
+import HeaderComponent from "@/component/headerComponent";
 
 // Defining Font
 const NunitoFont:NextFont = Nunito({
@@ -40,6 +41,7 @@ export default function Layout({children}:propsType):ReactNode {
     return (
         <html>
             <body className={`${NunitoFont.className}`}>
+                <HeaderComponent />
                 {children}
             </body>
         </html>
