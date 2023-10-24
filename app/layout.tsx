@@ -7,7 +7,10 @@ import '@/app/index.css';
 import {NextFont} from "next/dist/compiled/@next/font";
 
 // Defining Font
-const NunitoFont:NextFont = Nunito({weight: ['300','400', '500', '700', '900']})
+const NunitoFont:NextFont = Nunito({
+    weight: ['300','400', '500', '700', '900'],
+    subsets: ['latin']
+})
 
 // Defining metadata of pages
 const metadata:Metadata = {
