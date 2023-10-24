@@ -2,7 +2,12 @@
 // Importing part
 import {ReactNode} from 'react';
 import {Metadata} from "next";
+import {Nunito} from "next/font/google";
 import '@/app/index.css';
+import {NextFont} from "next/dist/compiled/@next/font";
+
+// Defining Font
+const NunitoFont:NextFont = Nunito({weight: ['300','400', '500', '700', '900']})
 
 // Defining metadata of pages
 const metadata:Metadata = {
@@ -31,7 +36,7 @@ export default function Layout({children}:propsType):ReactNode {
     // Returning JSX
     return (
         <html>
-            <body>
+            <body className={`${NunitoFont.className}`}>
                 {children}
             </body>
         </html>
