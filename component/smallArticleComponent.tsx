@@ -14,7 +14,7 @@ interface propsType {
 export default function SmallArticleComponent({title, img, link}:propsType):ReactNode {
     // Returning JSX
     return (
-        <li>
+        <li className={'shrink-0 w-full'}>
             <article>
                 <Link href={link} className={'flex gap-[20px] py-[20px]'}>
                     <img className={'aspect-square w-[20%]'} src={img} alt={title} />

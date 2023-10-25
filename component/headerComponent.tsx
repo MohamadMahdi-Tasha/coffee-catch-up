@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function HeaderComponent():ReactNode {
     // Returning JSX
     return (
-        <header className={'border-b border-b-black fixed top-0 left-0 w-full bg-white/20 backdrop-blur'}>
+        <header className={'border-b border-b-black fixed top-0 left-0 w-full bg-white/20 backdrop-blur z-[100]'}>
             <HolderComponent className={'flex justify-between gap-[20px] items-center'}>
                 <Link href={'/'} className={'flex items-center'}>
                     <Image src={logoImage.src} alt={'Logo of coffee catch up'} width={50} height={50} />

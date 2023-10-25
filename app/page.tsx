@@ -11,10 +11,10 @@ import Link from "next/link";
 export default function HomePage():ReactNode {
     // Returning JSX
     return (
-        <HolderComponent className={'grid grid-cols-3 mt-[71px] min-h-screen'}>
-            <section className={'col-span-2 border-r border-black pt-[50px]'}>
+        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 mt-[71px] min-h-screen'}>
+            <section className={'col-span-2 sm:border-r border-black lg:pt-[50px]'}>
                 <header className={'pb-[50px] border-b border-b-black'}>
-                    <h1 className={'text-[50px] font-extrabold'}>DISCOVER OUR LATEST POSTS</h1>
+                    <h1 className={'lg:text-[50px] text-[20px] font-extrabold'}>DISCOVER OUR LATEST POSTS</h1>
                 </header>
                 <main className={'border-b border-b-black'}>
                     <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
@@ -24,7 +24,7 @@ export default function HomePage():ReactNode {
                     </ul>
                 </main>
             </section>
-            <aside className={'col-span-1 pt-[50px] px-[20px]'}>
+            <aside className={'col-span-1 pt-[50px]'}>
                 <header className={'mb-[30px]'}>
                     <form action="#">
                         <div className={'relative'}>
@@ -37,7 +37,7 @@ export default function HomePage():ReactNode {
                 </header>
                 <main className={'mb-[30px]'}>
                     <h5 className={'text-[20px] font-extrabold mb-[20px]'}>TOP POSTS</h5>
-                    <ul className={'[&>li]:border-b [&>li]:border-b-black'}>
+                    <ul className={'[&>li]:border-b [&>li]:border-b-black lg:block flex gap-[20px] overflow-auto'}>
                         <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
                         <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
                         <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
@@ -45,7 +45,7 @@ export default function HomePage():ReactNode {
                         <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
                     </ul>
                 </main>
-                <footer>
+                <footer className={'lg:block hidden'}>
                     <h5 className={'text-[20px] font-extrabold mb-[20px]'}>FOLLOW ME</h5>
                     <ul className={'flex flex-wrap gap-[10px]'}>
                         <li>
