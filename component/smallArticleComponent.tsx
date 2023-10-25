@@ -15,10 +15,14 @@ export default function SmallArticleComponent({title, img, link}:propsType):Reac
     // Returning JSX
     return (
         <li>
-            <Link href={link}>
-                <img src={img} alt={title} />
-                <span>{title}</span>
-            </Link>
+            <article>
+                <Link href={link} className={'flex gap-[20px] py-[20px]'}>
+                    <img className={'aspect-square w-[20%]'} src={img} alt={title} />
+                    <div className={'w-[80%] flex items-center'}>
+                        <span className={'text-[15px] font-light line-clamp-2 break-words'}>{title}</span>
+                    </div>
+                </Link>
+            </article>
         </li>
     );
 }

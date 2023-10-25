@@ -10,13 +10,13 @@ import Link from "next/link";
 export default function HeaderComponent():ReactNode {
     // Returning JSX
     return (
-        <header className={'border-b border-b-black fixed top-0 left-0 w-full bg-white/80 backdrop-blur'}>
+        <header className={'border-b border-b-black fixed top-0 left-0 w-full bg-white/20 backdrop-blur'}>
             <HolderComponent className={'flex justify-between gap-[20px] items-center'}>
                 <Link href={'/'} className={'flex items-center'}>
                     <Image src={logoImage.src} alt={'Logo of coffee catch up'} width={50} height={50} />
                     <span className={'text-[18px] truncate block text-black ml-[20px]'}>Coffee Catch Up</span>
                 </Link>
-                <Link className={'px-[30px] py-[7px] whitespace-nowrap border text-[15px] text-black font-light border-black transition-all duration-500 hover:bg-black hover:text-white'} href={'/login'}>
+                <Link className={'px-[30px] py-[7px] whitespace-nowrap border text-[15px] text-black border-black transition-all duration-500 hover:bg-black hover:text-white'} href={'/login'}>
                     Log in
                 </Link>
             </HolderComponent>
