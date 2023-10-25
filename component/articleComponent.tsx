@@ -26,8 +26,8 @@ export default function ArticleComponent({date, link, img, profileImg, profileNa
                         <span className={'text-black font-bold break-words text-[25px] line-clamp-2 mb-[20px]'}>{title}</span>
                         <p className={'text-black font-light break-words line-clamp-2 mb-[30px] text-[20px]'}>{children}</p>
                         <div className={'flex lg:justify-between items-center gap-[10px]'}>
-                            <img src={profileImg} alt={profileName} className={'w-[100px] bg-red-600 aspect-square rounded-full object-cover'} />
-                            <span className={'truncate text-[15px] font-light text-black'}>{profileName}sjhjhjkhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</span>
+                            <img src={profileImg} alt={profileName} className={'w-[50px] aspect-square rounded-full object-cover'} />
+                            <span className={'truncate text-[15px] font-light text-black'}>{profileName}</span>
                             <div className={'h-[40px] w-[1px] bg-black'} />
                             <time className={'text-[15px] font-light text-black'} dateTime={date}>{date}</time>
                         </div>
