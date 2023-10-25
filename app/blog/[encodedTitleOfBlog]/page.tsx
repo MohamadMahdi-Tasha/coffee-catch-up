@@ -10,6 +10,9 @@ export default function Page():ReactNode {
     // Returning JSX
     return (
         <>
+            <head>
+                <title>asdasdasda</title>
+            </head>
             <section className={'mt-[72px] bg-theme-color/30'}>
                 <HolderComponent className={'pt-[50px] pb-0'}>
                     <header className={'mb-[50px]'}>
