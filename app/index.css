@@ -12,3 +12,4 @@
 .profile-name {@apply truncate text-[15px] font-light text-black;}
 .profile-divider {@apply h-[40px] w-[1px] bg-black;}
 .profile-date {@apply text-[15px] font-light text-black;}
+.loading {@apply bg-gray-400 animate-pulse;}

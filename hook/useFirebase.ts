@@ -4,13 +4,8 @@ import {FirebaseApp, initializeApp} from "@firebase/app";
 import {Database, DatabaseReference, getDatabase, ref} from "@firebase/database";
 import {FirebaseOptions} from "@firebase/app-types";
 
-// Defining type of parameters
-interface parametersType {
-    path: string;
-}
-
 // Creating and exporting useFirebase hook as default
-export default function useFirebase({path}:parametersType):DatabaseReference {
+export default function useFirebase(path:string):DatabaseReference {
     // Config of firebase
     const firebaseConfig:FirebaseOptions = {
         apiKey: "AIzaSyAqfQlW53qry_73g2eO7anT9d0rfcbnBMg",
