@@ -14,7 +14,7 @@ const NunitoFont:NextFont = Nunito({
 })
 
 // Defining metadata of pages
-const metadata:Metadata = {
+export const metadata:Metadata = {
     title: 'Coffee Catch Up - Daily blog app',
     description: 'Coffee Catch Up is daily my (Mahdi Tasha) daily weblog :))',
     viewport: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
