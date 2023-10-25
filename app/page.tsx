@@ -6,12 +6,15 @@ import ArticleComponent from "@/component/articleComponent";
 import IconComponent from "@/chunk/iconComponent";
 import SmallArticleComponent from "@/component/smallArticleComponent";
 import Link from "next/link";
+import bgLightImage from '@/public/img/img-light.png';
 
 // Creating and exporting home page as default
 export default function HomePage():ReactNode {
     // Returning JSX
     return (
-        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 mt-[71px] min-h-screen'}>
+        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 mt-[71px] relative'}>
+            <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full lg:-top-[200px] top-0 lg:-left-[500px] left-[-200px] opacity-50 -z-[1]'}/>
+            <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full top-[700px] lg:-right-[300px] -right-[200px] opacity-50 -z-[1]'}/>
             <section className={'col-span-2 sm:border-r border-black lg:pt-[50px]'}>
                 <header className={'pb-[50px] border-b border-b-black'}>
                     <h1 className={'lg:text-[50px] text-[20px] font-extrabold'}>DISCOVER OUR LATEST POSTS</h1>
@@ -49,17 +52,17 @@ export default function HomePage():ReactNode {
                     <h5 className={'text-[20px] font-extrabold mb-[20px]'}>FOLLOW ME</h5>
                     <ul className={'flex flex-wrap gap-[10px]'}>
                         <li>
-                            <Link className={'w-[50px] h-[50px] aspect-square border border-black rounded-full flex justify-center items-center'} href={'https://www.instagram.com/mahditasha_/'}>
+                            <Link className={'w-[50px] transition-all duration-500 hover:bg-black hover:text-white h-[50px] aspect-square border border-black rounded-full flex justify-center items-center'} href={'https://www.instagram.com/mahditasha_/'}>
                                 <IconComponent name={'instagram'} size={20} />
                             </Link>
                         </li>
                         <li>
-                            <Link className={'w-[50px] h-[50px] aspect-square border border-black rounded-full flex justify-center items-center'} href={'https://github.com/MohamadMahdi-Tasha'}>
+                            <Link className={'w-[50px] transition-all duration-500 hover:bg-black hover:text-white h-[50px] aspect-square border border-black rounded-full flex justify-center items-center'} href={'https://github.com/MohamadMahdi-Tasha'}>
                                 <IconComponent name={'github'} size={20} />
                             </Link>
                         </li>
                         <li>
-                            <Link className={'border border-black rounded-[50rem] whitespace-nowrap flex justify-center items-center h-[50px] px-[30px] text-[15px] font-bold'} href={'https://github.com/MohamadMahdi-Tasha'}>
+                            <Link className={'border transition-all duration-500 hover:bg-black hover:text-white border-black rounded-[50rem] whitespace-nowrap flex justify-center items-center h-[50px] px-[30px] text-[15px] font-bold'} href={'https://github.com/MohamadMahdi-Tasha'}>
                                 My personal website
                             </Link>
                         </li>

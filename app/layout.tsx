@@ -40,7 +40,7 @@ export default function Layout({children}:propsType):ReactNode {
     // Returning JSX
     return (
         <html>
-            <body className={`${NunitoFont.className}`}>
+            <body className={`${NunitoFont.className} overflow-x-hidden overflow-y-auto`}>
                 <HeaderComponent />
                 {children}
             </body>
