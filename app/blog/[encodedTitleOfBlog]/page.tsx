@@ -31,7 +31,9 @@ export default function Page():ReactNode {
                 </footer>
             </section>
             <section>
-                <p>klasjdklajskldjklasjldkjaskljdlkasjdlaskljdklasd</p>
+                <main>
+                    <p>klasjdklajskldjklasjldkjaskljdlkasjdlaskljdklasd</p>
+                </main>
             </section>
         </HolderComponent>
     );
