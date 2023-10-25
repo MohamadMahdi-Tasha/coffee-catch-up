@@ -9,10 +9,13 @@ import IconComponent from "@/chunk/iconComponent";
 export default function Page():ReactNode {
     // Returning JSX
     return (
-        <HolderComponent>
-            <h1>Sorry but the page your looking for is not found :)</h1>
-            <Link href={'/'}>
-                <IconComponent name={'chevron-left'} size={20} />
+        <HolderComponent className={'mt-[71px] min-h-[calc(100vh-71px)] flex justify-center items-center flex-col'}>
+            <h1 className={'text-black font-bold mb-[20px] text-[30px] text-center'}>
+                Sorry but the page your looking for <br/>
+                is <span className={'font-black'}>not found</span> :)
+            </h1>
+            <Link href={'/'} className={'px-[30px] py-[7px] whitespace-nowrap border text-[15px] text-black border-black transition-all duration-500 hover:bg-black hover:text-white flex items-center'}>
+                <span className={'mr-[20px]'}><IconComponent name={'chevron-left'} size={20} /></span>
                 Go Home
             </Link>
         </HolderComponent>
