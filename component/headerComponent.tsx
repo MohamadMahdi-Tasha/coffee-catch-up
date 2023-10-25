@@ -16,7 +16,7 @@ export default function HeaderComponent():ReactNode {
                     <Image src={logoImage.src} alt={'Logo of coffee catch up'} width={50} height={50} />
                     <span className={'text-[18px] truncate block text-black ml-[20px]'}>Coffee Catch Up</span>
                 </Link>
-                <Link className={'px-[30px] py-[7px] whitespace-nowrap border text-[15px] text-black border-black transition-all duration-500 hover:bg-black hover:text-white'} href={'/login'}>
+                <Link className={'primary-btn'} href={'/login'}>
                     Log in
                 </Link>
             </HolderComponent>

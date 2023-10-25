@@ -9,32 +9,36 @@ import IconComponent from "@/chunk/iconComponent";
 export default function Page():ReactNode {
     // Returning JSX
     return (
-        <HolderComponent>
-            <section>
-                <header>
-                    <Link href={'/'}>
-                        <IconComponent name={'chevron-left'} size={20} />
-                        Back to Blog
-                    </Link>
-                </header>
-                <main>
-                    <h1>Title</h1>
-                    <div>
-                        {/*Todo: Replaced With Img*/}
-                        <div />
-                        <h5>mmd</h5>
-                        <h6><time dateTime={'1/1/1'}>1/1/1</time></h6>
-                    </div>
-                </main>
-                <footer>
-                    <div />
-                </footer>
+        <>
+            <section className={'mt-[72px] bg-theme-color/30'}>
+                <HolderComponent className={'pt-[50px] pb-0'}>
+                    <header className={'mb-[50px]'}>
+                        <Link className={'text-[18px] font-normal text-black flex items-center'} href={'/'}>
+                            <span className={'mr-[20px]'}><IconComponent name={'chevron-left'} size={20} /></span>
+                            Back to Blog
+                        </Link>
+                    </header>
+                    <main className={'mb-[100px]'}>
+                        <h1 className={'title-no-blog'}>Title</h1>
+                        <div className={'flex items-center flex-wrap gap-[20px]'}>
+                            <img src={'sdasd'} alt={'asdasdasda'} className={'profile-img'} />
+                            <span className={'profile-name'}>{'asdasdasdsad'}</span>
+                            <div className={'profile-divider'} />
+                            <time className={'profile-date'} dateTime={'asdasddasd'}>{'asdasdasd'}</time>
+                        </div>
+                    </main>
+                    <footer>
+                        <img src={''} alt={''} className={'h-[500px] w-full bg-red-600'} />
+                    </footer>
+                </HolderComponent>
             </section>
-            <section>
-                <main>
-                    <p>klasjdklajskldjklasjldkjaskljdlkasjdlaskljdklasd</p>
-                </main>
-            </section>
-        </HolderComponent>
+            <HolderComponent>
+                <section>
+                    <main>
+                        <p>klasjdklajskldjklasjldkjaskljdlkasjdlaskljdklasd</p>
+                    </main>
+                </section>
+            </HolderComponent>
+        </>
     );
 }

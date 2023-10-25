@@ -17,7 +17,7 @@ export default function HomePage():ReactNode {
             <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full top-[700px] lg:-right-[300px] -right-[200px] opacity-50 -z-[1]'}/>
             <section className={'col-span-2 sm:border-r border-black lg:pt-[50px]'}>
                 <header className={'pb-[50px] border-b border-b-black'}>
-                    <h1 className={'lg:text-[50px] text-[20px] font-extrabold'}>DISCOVER OUR LATEST POSTS</h1>
+                    <h1 className={'title-no-blog'}>DISCOVER OUR LATEST POSTS</h1>
                 </header>
                 <main className={'border-b border-b-black'}>
                     <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
@@ -52,12 +52,12 @@ export default function HomePage():ReactNode {
                     <h5 className={'text-[20px] font-extrabold mb-[20px]'}>FOLLOW ME</h5>
                     <ul className={'flex flex-wrap gap-[10px]'}>
                         <li>
-                            <Link className={'w-[50px] transition-all duration-500 hover:bg-black hover:text-white h-[50px] aspect-square border border-black rounded-full flex justify-center items-center'} href={'https://www.instagram.com/mahditasha_/'}>
+                            <Link className={'social-link'} href={'https://www.instagram.com/mahditasha_/'}>
                                 <IconComponent name={'instagram'} size={20} />
                             </Link>
                         </li>
                         <li>
-                            <Link className={'w-[50px] transition-all duration-500 hover:bg-black hover:text-white h-[50px] aspect-square border border-black rounded-full flex justify-center items-center'} href={'https://github.com/MohamadMahdi-Tasha'}>
+                            <Link className={'social-link'} href={'https://github.com/MohamadMahdi-Tasha'}>
                                 <IconComponent name={'github'} size={20} />
                             </Link>
                         </li>

@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*Custom styles*/
+.primary-btn {@apply px-[30px] py-[7px] whitespace-nowrap border text-[15px] text-black border-black transition-all duration-500 hover:bg-black hover:text-white;}
+.title-no-blog {@apply lg:text-[50px] text-[20px] font-extrabold;}
+.social-link {@apply w-[50px] transition-all duration-500 hover:bg-black hover:text-white h-[50px] aspect-square border border-black rounded-full flex justify-center items-center;}
+.profile-img {@apply w-[50px] aspect-square rounded-full object-cover;}
+.profile-name {@apply truncate text-[15px] font-light text-black;}
+.profile-divider {@apply h-[40px] w-[1px] bg-black;}
+.profile-date {@apply text-[15px] font-light text-black;}
