@@ -14,3 +14,14 @@
 .profile-divider {@apply h-[40px] w-[1px] bg-black;}
 .profile-date {@apply text-[15px] font-light text-black;}
 .loading {@apply bg-gray-400 animate-pulse;}
+
+/*Defining styles of markdown*/
+.markdown h1 {@apply font-bold text-black text-[25px];}
+.markdown h2 {@apply font-bold text-black text-[22px];}
+.markdown h3 {@apply font-normal text-black text-[20px];}
+.markdown h4 {@apply font-normal text-black text-[18px];}
+.markdown h5 {@apply font-light text-black text-[15px];}
+.markdown h6 {@apply font-light text-black text-[12px];}
+.markdown hr {@apply border-2 border-black my-[20px];}
+.markdown a {@apply underline underline-offset-8;}
+.markdown p {@apply text-[20px] font-normal text-black;}

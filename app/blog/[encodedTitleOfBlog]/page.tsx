@@ -11,6 +11,8 @@ import useFirebase from "@/hook/useFirebase";
 import {DatabaseReference, DataSnapshot, onValue} from "@firebase/database";
 import {usePathname} from "next/navigation";
 import Tilt from "react-parallax-tilt";
+import Markdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
 
 // Creating and exporting blog page as default
 export default function Page():ReactNode {
@@ -128,8 +130,7 @@ export default function Page():ReactNode {
                                         <div className={'w-full mb-[20px] loading h-[30px]'}></div>
                                         <div className={'w-full loading h-[150px]'}></div>
                                     </div>
-                                )
-                                : <p>{blog.content}</p>
+                                ) : <Markdown className={'markdown'} remarkPlugins={[remarkGfm]}>{blog.content.replace(/\\n/g, '\n')}</Markdown>
                         }
                     </main>
                 </section>
