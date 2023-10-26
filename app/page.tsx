@@ -3,7 +3,7 @@
 'use client';
 
 // Importing part
-import {ReactNode, useState, useEffect, Dispatch} from "react";
+import {ReactNode, useState, useEffect, Dispatch, useRef, MutableRefObject} from "react";
 import HolderComponent from "@/chunk/holderComponent";
 import ArticleComponent from "@/component/articleComponent";
 import IconComponent from "@/chunk/iconComponent";
@@ -12,12 +12,20 @@ import Link from "next/link";
 import bgLightImage from '@/public/img/img-light.png';
 import useFirebase from "@/hook/useFirebase";
 import {DatabaseReference, DataSnapshot, onValue} from "@firebase/database";
+import {useRouter} from "next/navigation";
+import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 // Creating and exporting home page as default
 export default function HomePage():ReactNode {
     // Defining states of component
     const [isFetching, setFetching]:[boolean, Dispatch<boolean>] = useState(true);
     const [blogs, setBlogs]:[Array<any>, Dispatch<Array<any>>] = useState(['']);
+
+    // Defining a ref to search input
+    const inputRef:MutableRefObject<any> = useRef();
+
+    // Defining useRouter hook to navigate to search page
+    const router:AppRouterInstance = useRouter();
 
     // Defining firebase
     const databaseRef:DatabaseReference = useFirebase('/blogs');
@@ -82,9 +90,15 @@ export default function HomePage():ReactNode {
             </section>
             <aside className={'col-span-1 pt-[50px]'}>
                 <header className={'mb-[30px]'}>
-                    <form action="#">
+                    <form action="#" onSubmit={(event) => {
+                        event.preventDefault();
+
+                        const searchString:string = inputRef.current.value;
+
+                        router.push(`/search/${searchString}`);
+                    }}>
                         <div className={'relative'}>
-                            <input className={'py-[10px] w-full pl-[50px] pr-[20px] [&~label]:focus:text-black border border-black/30 focus:border-black placeholder:transition-all placeholder:duration-500 transition-all duration-500 text-black outline-0 placeholder:text-[15px] placeholder:font-light placeholder:text-black/50 focus:placeholder:text-black block rounded-[50rem]'} type="text" placeholder={'Read About ...'} required id={'search-input'} name={'search-input'} />
+                            <input ref={inputRef} className={'py-[10px] w-full pl-[50px] pr-[20px] [&~label]:focus:text-black border border-black/30 focus:border-black placeholder:transition-all placeholder:duration-500 transition-all duration-500 text-black outline-0 placeholder:text-[15px] placeholder:font-light placeholder:text-black/50 focus:placeholder:text-black block rounded-[50rem]'} type="text" placeholder={'Read About ...'} required id={'search-input'} name={'search-input'} />
                             <label className={'absolute top-[50%] text-black/30 transition-all duration-500 left-[20px] -translate-y-[50%]'} htmlFor="search-input">
                                 <IconComponent name={'search'} size={18} />
                             </label>
