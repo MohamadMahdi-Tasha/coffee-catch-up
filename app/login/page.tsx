@@ -45,7 +45,7 @@ export default function Page():ReactNode {
                     (isFetching)
                         ? <IconComponent size={50} name={'loading'} />
                         : (isUserLoggedIn)
-                            ? <h1 className={'text-[40px] font-black text-center mb-[20px]'}>Your logged in already.</h1>
+                            ? <h1 className={'text-[40px] font-black text-center'}>Your logged in already.</h1>
                             : <IconComponent size={50} name={'loading'} />
                 }
             </HolderComponent>
