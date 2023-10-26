@@ -18,6 +18,7 @@ export default function HeaderComponent():ReactNode {
     const [isUserLoggedIn, setUserLoggedIn]:[boolean, Dispatch<boolean>] = useState(false);
     const [isFetching, setFetching]:[boolean, Dispatch<boolean>] = useState(true);
     const [imgOfUser, setImgUser]:[string, Dispatch<string>] = useState('');
+    const [isUserAdmin, setUserAdmin]:[boolean, Dispatch<boolean>] = useState(false);
 
     // Defining firebase
     const databaseRef:DatabaseReference = useFirebase('/');
@@ -31,7 +32,11 @@ export default function HeaderComponent():ReactNode {
             if (user) {
                 (user.photoURL)
                     ? setImgUser(user.photoURL)
-                    : setImgUser('')
+                    : setImgUser('');
+
+                (user.email === "imwhdiiii@gmail.com")
+                    ? setUserAdmin(true)
+                    : setUserAdmin(false);
 
                 setUserLoggedIn(true);
             } else {
@@ -52,9 +57,15 @@ export default function HeaderComponent():ReactNode {
                 {
                     (isFetching)
                         ? <div className={'w-[50px] h-[50px] rounded-full aspect-square loading'} />
-                        : (isUserLoggedIn)
-                            ? <img tabIndex={0} onClick={() => auth.signOut()} src={imgOfUser} alt="Profile of user" className={'w-[50px] cursor-pointer h-[50px] aspect-square rounded-full'} />
-                            : <Link className={'primary-btn'} href={'/login'}>Log in</Link>
+                        : (!isUserLoggedIn)
+                            ? <Link className={'primary-btn'} href={'/login'}>Log in</Link>
+                            : (isUserAdmin)
+                                ? (
+                                    <div className={'flex gap-[20px] justify-between items-center'}>
+                                        <img tabIndex={0} onClick={() => auth.signOut()} src={imgOfUser} alt="Profile of user" className={'w-[50px] cursor-pointer h-[50px] aspect-square rounded-full'} />
+                                        <Link className={'primary-btn'} href={'/create'}>Create</Link>
+                                    </div>
+                                ) : <img tabIndex={0} onClick={() => auth.signOut()} src={imgOfUser} alt="Profile of user" className={'w-[50px] cursor-pointer h-[50px] aspect-square rounded-full'} />
                 }
             </HolderComponent>
         </header>
