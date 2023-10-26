@@ -2,6 +2,7 @@
 // Importing part
 import {ReactNode} from "react";
 import Link from 'next/link';
+import Tilt from 'react-parallax-tilt';
 
 // Defining type of props
 interface propsType {
@@ -23,7 +24,10 @@ export default function ArticleComponent({date, link, img, profileImg, profileNa
             <li>
                 <article>
                     <Link href={link} className={'py-[20px] flex lg:flex-row flex-col gap-[20px]'}>
-                        <img src={img} alt={title} className={'lg:aspect-square lg:w-[50%] w-full lg:h-auto h-[250px] object-cover'} />
+                        <Tilt className={'lg:aspect-square lg:w-[50%] w-full lg:h-auto h-[250px] relative'}>
+                            <img src={img} alt={title} className={'w-full h-full object-cover'} />
+                            <div className={'w-full h-full bg-theme-color mix-blend-hue absolute top-0 left-0'} />
+                        </Tilt>
                         <div className={'lg:w-[50%] flex flex-col justify-between gap-[20px]'}>
                             <span className={'text-black font-bold break-words text-[25px] line-clamp-2 mb-[20px]'}>{title}</span>
                             <p className={'text-black font-light break-words line-clamp-2 mb-[30px] text-[20px]'}>{children}</p>

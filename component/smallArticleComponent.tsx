@@ -19,7 +19,10 @@ export default function SmallArticleComponent({title, img, link, loading}:propsT
             <li className={'shrink-0 w-full'}>
                 <article>
                     <Link href={link} className={'flex gap-[20px] py-[20px]'}>
-                        <img className={'aspect-square w-[20%]'} src={img} alt={title} />
+                        <div className={'aspect-square w-[20%] relative'}>
+                            <div className={'absolute w-full h-full bg-theme-color mix-blend-hue'} />
+                            <img className={'w-full object-cover h-full'} src={img} alt={title} />
+                        </div>
                         <div className={'w-[80%] flex items-center'}>
                             <span className={'text-[15px] font-light line-clamp-2 break-words'}>{title}</span>
                         </div>

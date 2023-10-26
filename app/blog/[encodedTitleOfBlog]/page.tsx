@@ -10,7 +10,7 @@ export default function Page():ReactNode {
     // Returning JSX
     return (
         <>
-            <section className={'mt-[72px] bg-theme-color/30'}>
+            <section className={'bg-theme-color/30'}>
                 <HolderComponent className={'pt-[50px] pb-0'}>
                     <header className={'mb-[50px]'}>
                         <Link className={'text-[18px] font-normal text-black flex items-center'} href={'/'}>

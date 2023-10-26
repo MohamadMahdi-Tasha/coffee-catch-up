@@ -9,7 +9,7 @@ import IconComponent from "@/chunk/iconComponent";
 export default function Page():ReactNode {
     // Returning JSX
     return (
-        <HolderComponent className={'mt-[71px] min-h-[calc(100vh-71px)] flex justify-center items-center flex-col'}>
+        <HolderComponent className={'min-h-[calc(100vh-100px)] flex justify-center items-center flex-col'}>
             <h1 className={'text-black font-bold mb-[20px] text-[30px] text-center'}>
                 Sorry but the page your looking for <br/>
                 is <span className={'font-black'}>not found</span> :)

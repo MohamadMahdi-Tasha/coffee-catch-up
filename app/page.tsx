@@ -32,7 +32,7 @@ export default function HomePage():ReactNode {
 
     // Returning JSX
     return (
-        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 mt-[71px] relative'}>
+        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 relative'}>
             <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full lg:-top-[200px] top-0 lg:-left-[500px] left-[-200px] opacity-50 -z-[1]'}/>
             <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full top-[700px] lg:-right-[300px] -right-[200px] opacity-50 -z-[1]'}/>
             <section className={'col-span-2 sm:border-r border-black lg:pt-[50px] pr-[20px]'}>
@@ -58,13 +58,15 @@ export default function HomePage():ReactNode {
                                             : (
                                                 <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
                                                     {
-                                                        blogs.map(item => (
-                                                            <ArticleComponent link={`blog/${btoa(item.title)}`}
-                                                                              title={item.title}
-                                                                              img={item.img}
-                                                                              date={item.date}
-                                                                              profileImg={item.profileImg}
-                                                                              profileName={item.profileName}
+                                                        blogs.toReversed().map((item, index) => (
+                                                            <ArticleComponent
+                                                                key={index}
+                                                                link={`blog/${btoa(item.title)}`}
+                                                                title={item.title}
+                                                                img={item.img}
+                                                                date={item.date}
+                                                                profileImg={item.profileImg}
+                                                                profileName={item.profileName}
                                                             >
                                                                 {item.content}
                                                             </ArticleComponent>
@@ -109,8 +111,13 @@ export default function HomePage():ReactNode {
                                             : (
                                                 <ul className={'[&>li]:border-b [&>li]:border-b-black lg:block flex gap-[20px] overflow-auto'}>
                                                     {
-                                                        blogs.slice(0,5).map((item) => (
-                                                            <SmallArticleComponent link={`blog/${btoa(item.title)}`} title={item.title} img={item.img} />
+                                                        blogs.slice(0,5).map((item, index) => (
+                                                            <SmallArticleComponent
+                                                                key={index}
+                                                                link={`blog/${btoa(item.title)}`}
+                                                                title={item.title}
+                                                                img={item.img}
+                                                            />
                                                         ))
                                                     }
                                                 </ul>
