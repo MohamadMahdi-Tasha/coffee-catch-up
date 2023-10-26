@@ -20,7 +20,7 @@ export default function HomePage():ReactNode {
     const [blogs, setBlogs]:[Array<any>, Dispatch<Array<any>>] = useState(['']);
 
     // Defining firebase
-    const databaseRef:DatabaseReference = useFirebase('/');
+    const databaseRef:DatabaseReference = useFirebase('/blogs');
 
     // Using useEffect hook to fetch data from database
     useEffect(() => {
@@ -40,38 +40,42 @@ export default function HomePage():ReactNode {
                     <h1 className={'title-no-blog'}>DISCOVER OUR LATEST POSTS</h1>
                 </header>
                 <main className={'border-b border-b-black'}>
-                    <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
-                        {
-                            (isFetching)
-                                ? (
-                                    <>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                        <ArticleComponent link={''} title={'title 1'} img={''} date={'1/1/1'} profileImg={''} profileName={''} loading>asdasd</ArticleComponent>
-                                    </>
-                                ) : (
-                                    <>
-                                        {
-                                            blogs.map(item => (
-                                                <ArticleComponent link={btoa(item.title)}
-                                                                  title={item.title}
-                                                                  img={item.img}
-                                                                  date={item.date}
-                                                                  profileImg={item.profileImg}
-                                                                  profileName={item.profileName}
-                                                >
-                                                    {item.content}
-                                                </ArticleComponent>
-                                            ))
-                                        }
-                                    </>
-                                )
-                        }
-                    </ul>
+                    {
+                        (isFetching)
+                            ? (
+                                <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
+                                    <ArticleComponent link={''} title={''} img={''} date={''} profileImg={''} profileName={''} children={''} loading />
+                                    <ArticleComponent link={''} title={''} img={''} date={''} profileImg={''} profileName={''} children={''} loading />
+                                    <ArticleComponent link={''} title={''} img={''} date={''} profileImg={''} profileName={''} children={''} loading />
+                                    <ArticleComponent link={''} title={''} img={''} date={''} profileImg={''} profileName={''} children={''} loading />
+                                    <ArticleComponent link={''} title={''} img={''} date={''} profileImg={''} profileName={''} children={''} loading />
+                                </ul>
+                            ) : (
+                                <>
+                                    {
+                                        (blogs["0"] === undefined)
+                                            ? <h1 className={'text-[30px] font-bold text-black my-[30px]'}>There is no blog.</h1>
+                                            : (
+                                                <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
+                                                    {
+                                                        blogs.map(item => (
+                                                            <ArticleComponent link={`blog/${btoa(item.title)}`}
+                                                                              title={item.title}
+                                                                              img={item.img}
+                                                                              date={item.date}
+                                                                              profileImg={item.profileImg}
+                                                                              profileName={item.profileName}
+                                                            >
+                                                                {item.content}
+                                                            </ArticleComponent>
+                                                        ))
+                                                    }
+                                                </ul>
+                                            )
+                                    }
+                                </>
+                            )
+                    }
                 </main>
             </section>
             <aside className={'col-span-1 pt-[50px]'}>
@@ -87,32 +91,34 @@ export default function HomePage():ReactNode {
                 </header>
                 <main className={'mb-[30px]'}>
                     <h5 className={'text-[20px] font-extrabold mb-[20px]'}>TOP POSTS</h5>
-                    <ul className={'[&>li]:border-b [&>li]:border-b-black lg:block flex gap-[20px] overflow-auto'}>
-                        {
-                            (isFetching)
-                                ? (
-                                    <>
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} loading />
-                                    </>
-                                ) : (
-                                    <>
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
-                                        <SmallArticleComponent link={'asdasd'} title={'asdasd'} img={'asd'} />
-                                    </>
-                                )
-                        }
-                    </ul>
+                    {
+                        (isFetching)
+                            ? (
+                                <ul className={'[&>li]:border-b [&>li]:border-b-black lg:block flex gap-[20px] overflow-auto'}>
+                                    <SmallArticleComponent link={''} title={''} img={''} loading />
+                                    <SmallArticleComponent link={''} title={''} img={''} loading />
+                                    <SmallArticleComponent link={''} title={''} img={''} loading />
+                                    <SmallArticleComponent link={''} title={''} img={''} loading />
+                                    <SmallArticleComponent link={''} title={''} img={''} loading />
+                                </ul>
+                            ) : (
+                                <>
+                                    {
+                                        (blogs["0"] === undefined)
+                                            ? <h1 className={'text-[20px] font-bold text-black text-center'}>There is no blog.</h1>
+                                            : (
+                                                <ul className={'[&>li]:border-b [&>li]:border-b-black lg:block flex gap-[20px] overflow-auto'}>
+                                                    {
+                                                        blogs.slice(0,5).map((item) => (
+                                                            <SmallArticleComponent link={`blog/${btoa(item.title)}`} title={item.title} img={item.img} />
+                                                        ))
+                                                    }
+                                                </ul>
+                                            )
+                                    }
+                                </>
+                            )
+                    }
                 </main>
                 <footer className={'lg:block hidden'}>
                     <h5 className={'text-[20px] font-extrabold mb-[20px]'}>FOLLOW ME</h5>
