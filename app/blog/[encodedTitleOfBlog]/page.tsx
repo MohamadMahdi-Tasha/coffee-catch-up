@@ -8,7 +8,7 @@ import HolderComponent from "@/chunk/holderComponent";
 import Link from "next/link";
 import IconComponent from "@/chunk/iconComponent";
 import useFirebase from "@/hook/useFirebase";
-import {DatabaseReference, DataSnapshot, onValue} from "@firebase/database";
+import {DatabaseReference, DataSnapshot, onValue, set} from "@firebase/database";
 import {usePathname} from "next/navigation";
 import Tilt from "react-parallax-tilt";
 import Markdown from "react-markdown";
@@ -18,14 +18,15 @@ import remarkGfm from 'remark-gfm';
 export default function Page():ReactNode {
     // Defining states of component
     const [isFetching, setFetching]:[boolean, Dispatch<boolean>] = useState(true);
+    const [indexOfBlog, setIndexOfBlog]:[number, Dispatch<number>] = useState(0);
     const [blog, setBlog]:[{
         title: string,
-            img: string,
-            content: string,
-            date: string,
-            profileImg: string,
-            profileName: string,
-            views: number
+        img: string,
+        content: string,
+        date: string,
+        profileImg: string,
+        profileName: string,
+        views: number
     }, Dispatch<any>] = useState({
         title: '',
         img: '',
@@ -59,9 +60,14 @@ export default function Page():ReactNode {
 
             const findedBlog:any = valueOfDatabase.find(item => item.title === titleOfBlog);
 
+            setIndexOfBlog(valueOfDatabase.indexOf(findedBlog));
+
             setBlog(findedBlog);
             setFetching(false);
         })
+
+        const viewsOfBlogDBRef:DatabaseReference = useFirebase(`/blogs/${indexOfBlog}/views`);
+        set(viewsOfBlogDBRef, blog.views + 1);
     }, [])
 
     // Returning JSX

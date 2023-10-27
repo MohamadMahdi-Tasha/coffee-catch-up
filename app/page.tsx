@@ -40,7 +40,7 @@ export default function HomePage():ReactNode {
 
     // Returning JSX
     return (
-        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 relative'}>
+        <HolderComponent className={'lg:grid flex gap-[20px] flex-col-reverse grid-cols-3 relative pt-0'}>
             <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full lg:-top-[200px] top-0 lg:-left-[500px] left-[-200px] opacity-50 -z-[1]'}/>
             <img src={bgLightImage.src} alt="Image of simple lighting" className={'absolute w-full top-[700px] lg:-right-[300px] -right-[200px] opacity-50 -z-[1]'}/>
             <section className={'col-span-2 sm:border-r border-black lg:pt-[50px] pr-[20px]'}>
@@ -61,7 +61,7 @@ export default function HomePage():ReactNode {
                             ) : (
                                 <>
                                     {
-                                        (blogs["0"] === undefined)
+                                        (blogs[0] === undefined)
                                             ? <h1 className={'text-[30px] font-bold text-black my-[30px]'}>There is no blog.</h1>
                                             : (
                                                 <ul className={'[&>li:not(:last-of-type)]:border-b [&>li:not(:last-of-type)]:border-b-black'}>
@@ -69,7 +69,7 @@ export default function HomePage():ReactNode {
                                                         blogs.toReversed().map((item, index) => (
                                                             <ArticleComponent
                                                                 key={index}
-                                                                link={`blog/${btoa(item.title)}`}
+                                                                link={`/blog/${btoa(item.title)}`}
                                                                 title={item.title}
                                                                 img={item.img}
                                                                 date={item.date}
@@ -120,15 +120,15 @@ export default function HomePage():ReactNode {
                             ) : (
                                 <>
                                     {
-                                        (blogs["0"] === undefined)
+                                        (blogs[0] === undefined)
                                             ? <h1 className={'text-[20px] font-bold text-black text-center'}>There is no blog.</h1>
                                             : (
                                                 <ul className={'[&>li]:border-b [&>li]:border-b-black lg:block flex gap-[20px] overflow-auto'}>
                                                     {
-                                                        blogs.slice(0,5).map((item, index) => (
+                                                        blogs.slice(0,5).sort((a,b) => b.views - a.views).map((item, index) => (
                                                             <SmallArticleComponent
                                                                 key={index}
-                                                                link={`blog/${btoa(item.title)}`}
+                                                                link={`/blog/${btoa(item.title)}`}
                                                                 title={item.title}
                                                                 img={item.img}
                                                             />

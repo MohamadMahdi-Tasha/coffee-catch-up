@@ -103,7 +103,7 @@ export default function Page():ReactNode {
                                                         data.toReversed().map((item, index) => (
                                                             <ArticleComponent
                                                                 key={index}
-                                                                link={`blog/${btoa(item.title)}`}
+                                                                link={`/blog/${btoa(item.title)}`}
                                                                 title={item.title}
                                                                 img={item.img}
                                                                 date={item.date}
