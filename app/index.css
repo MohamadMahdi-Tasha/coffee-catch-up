@@ -14,6 +14,10 @@
 .profile-divider {@apply h-[40px] w-[1px] bg-black;}
 .profile-date {@apply text-[15px] font-light text-black;}
 .loading {@apply bg-gray-400 animate-pulse;}
+.input-label {@apply text-black text-[20px] font-normal mb-[20px] block;}
+.input {@apply w-full p-[20px] text-[20px] border border-black/30 block text-black/30 placeholder-black/30 placeholder:transition-all placeholder:duration-500 transition-all duration-500 outline-0;}
+.input:valid {@apply border-green-600 placeholder-green-600 text-green-600;}
+.input:invalid {@apply border-red-600 placeholder-red-600 text-red-600;}
 
 /*Defining styles of markdown*/
 .markdown h1 {@apply font-bold text-black text-[25px];}
